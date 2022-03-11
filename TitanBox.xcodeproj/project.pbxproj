@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68AA407B27DBC1DE000DC410 /* TitanBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA407A27DBC1DE000DC410 /* TitanBoxApp.swift */; };
+		68AA407D27DBC1DE000DC410 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA407C27DBC1DE000DC410 /* ContentView.swift */; };
+		68AA407F27DBC1DF000DC410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68AA407E27DBC1DF000DC410 /* Assets.xcassets */; };
+		68AA408227DBC1DF000DC410 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68AA408127DBC1DF000DC410 /* Preview Assets.xcassets */; };
+		68AA408427DBC1DF000DC410 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA408327DBC1DF000DC410 /* Persistence.swift */; };
+		68AA408727DBC1DF000DC410 /* TitanBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68AA408527DBC1DF000DC410 /* TitanBox.xcdatamodeld */; };
+		68AA409127DBC1E0000DC410 /* TitanBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA409027DBC1E0000DC410 /* TitanBoxTests.swift */; };
+		68AA409B27DBC1E0000DC410 /* TitanBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA409A27DBC1E0000DC410 /* TitanBoxUITests.swift */; };
+		68AA409D27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA409C27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		68AA408D27DBC1E0000DC410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68AA406F27DBC1DE000DC410 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68AA407627DBC1DE000DC410;
+			remoteInfo = TitanBox;
+		};
+		68AA409727DBC1E0000DC410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68AA406F27DBC1DE000DC410 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68AA407627DBC1DE000DC410;
+			remoteInfo = TitanBox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		68AA407727DBC1DE000DC410 /* TitanBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TitanBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68AA407A27DBC1DE000DC410 /* TitanBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanBoxApp.swift; sourceTree = "<group>"; };
+		68AA407C27DBC1DE000DC410 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		68AA407E27DBC1DF000DC410 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68AA408127DBC1DF000DC410 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		68AA408327DBC1DF000DC410 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		68AA408627DBC1DF000DC410 /* TitanBox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TitanBox.xcdatamodel; sourceTree = "<group>"; };
+		68AA408C27DBC1E0000DC410 /* TitanBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TitanBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68AA409027DBC1E0000DC410 /* TitanBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanBoxTests.swift; sourceTree = "<group>"; };
+		68AA409627DBC1E0000DC410 /* TitanBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TitanBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68AA409A27DBC1E0000DC410 /* TitanBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanBoxUITests.swift; sourceTree = "<group>"; };
+		68AA409C27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanBoxUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68AA407427DBC1DE000DC410 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68AA408927DBC1E0000DC410 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68AA409327DBC1E0000DC410 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68AA406E27DBC1DE000DC410 = {
+			isa = PBXGroup;
+			children = (
+				68AA407927DBC1DE000DC410 /* TitanBox */,
+				68AA408F27DBC1E0000DC410 /* TitanBoxTests */,
+				68AA409927DBC1E0000DC410 /* TitanBoxUITests */,
+				68AA407827DBC1DE000DC410 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		68AA407827DBC1DE000DC410 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68AA407727DBC1DE000DC410 /* TitanBox.app */,
+				68AA408C27DBC1E0000DC410 /* TitanBoxTests.xctest */,
+				68AA409627DBC1E0000DC410 /* TitanBoxUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		68AA407927DBC1DE000DC410 /* TitanBox */ = {
+			isa = PBXGroup;
+			children = (
+				68AA407A27DBC1DE000DC410 /* TitanBoxApp.swift */,
+				68AA407C27DBC1DE000DC410 /* ContentView.swift */,
+				68AA407E27DBC1DF000DC410 /* Assets.xcassets */,
+				68AA408327DBC1DF000DC410 /* Persistence.swift */,
+				68AA408527DBC1DF000DC410 /* TitanBox.xcdatamodeld */,
+				68AA408027DBC1DF000DC410 /* Preview Content */,
+			);
+			path = TitanBox;
+			sourceTree = "<group>";
+		};
+		68AA408027DBC1DF000DC410 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				68AA408127DBC1DF000DC410 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		68AA408F27DBC1E0000DC410 /* TitanBoxTests */ = {
+			isa = PBXGroup;
+			children = (
+				68AA409027DBC1E0000DC410 /* TitanBoxTests.swift */,
+			);
+			path = TitanBoxTests;
+			sourceTree = "<group>";
+		};
+		68AA409927DBC1E0000DC410 /* TitanBoxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				68AA409A27DBC1E0000DC410 /* TitanBoxUITests.swift */,
+				68AA409C27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift */,
+			);
+			path = TitanBoxUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		68AA407627DBC1DE000DC410 /* TitanBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68AA40A027DBC1E0000DC410 /* Build configuration list for PBXNativeTarget "TitanBox" */;
+			buildPhases = (
+				68AA407327DBC1DE000DC410 /* Sources */,
+				68AA407427DBC1DE000DC410 /* Frameworks */,
+				68AA407527DBC1DE000DC410 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TitanBox;
+			productName = TitanBox;
+			productReference = 68AA407727DBC1DE000DC410 /* TitanBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		68AA408B27DBC1E0000DC410 /* TitanBoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68AA40A327DBC1E0000DC410 /* Build configuration list for PBXNativeTarget "TitanBoxTests" */;
+			buildPhases = (
+				68AA408827DBC1E0000DC410 /* Sources */,
+				68AA408927DBC1E0000DC410 /* Frameworks */,
+				68AA408A27DBC1E0000DC410 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68AA408E27DBC1E0000DC410 /* PBXTargetDependency */,
+			);
+			name = TitanBoxTests;
+			productName = TitanBoxTests;
+			productReference = 68AA408C27DBC1E0000DC410 /* TitanBoxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		68AA409527DBC1E0000DC410 /* TitanBoxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68AA40A627DBC1E0000DC410 /* Build configuration list for PBXNativeTarget "TitanBoxUITests" */;
+			buildPhases = (
+				68AA409227DBC1E0000DC410 /* Sources */,
+				68AA409327DBC1E0000DC410 /* Frameworks */,
+				68AA409427DBC1E0000DC410 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68AA409827DBC1E0000DC410 /* PBXTargetDependency */,
+			);
+			name = TitanBoxUITests;
+			productName = TitanBoxUITests;
+			productReference = 68AA409627DBC1E0000DC410 /* TitanBoxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68AA406F27DBC1DE000DC410 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					68AA407627DBC1DE000DC410 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					68AA408B27DBC1E0000DC410 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 68AA407627DBC1DE000DC410;
+					};
+					68AA409527DBC1E0000DC410 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 68AA407627DBC1DE000DC410;
+					};
+				};
+			};
+			buildConfigurationList = 68AA407227DBC1DE000DC410 /* Build configuration list for PBXProject "TitanBox" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 68AA406E27DBC1DE000DC410;
+			productRefGroup = 68AA407827DBC1DE000DC410 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				68AA407627DBC1DE000DC410 /* TitanBox */,
+				68AA408B27DBC1E0000DC410 /* TitanBoxTests */,
+				68AA409527DBC1E0000DC410 /* TitanBoxUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		68AA407527DBC1DE000DC410 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68AA408227DBC1DF000DC410 /* Preview Assets.xcassets in Resources */,
+				68AA407F27DBC1DF000DC410 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68AA408A27DBC1E0000DC410 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68AA409427DBC1E0000DC410 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68AA407327DBC1DE000DC410 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68AA408427DBC1DF000DC410 /* Persistence.swift in Sources */,
+				68AA407D27DBC1DE000DC410 /* ContentView.swift in Sources */,
+				68AA408727DBC1DF000DC410 /* TitanBox.xcdatamodeld in Sources */,
+				68AA407B27DBC1DE000DC410 /* TitanBoxApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68AA408827DBC1E0000DC410 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68AA409127DBC1E0000DC410 /* TitanBoxTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68AA409227DBC1E0000DC410 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68AA409D27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift in Sources */,
+				68AA409B27DBC1E0000DC410 /* TitanBoxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		68AA408E27DBC1E0000DC410 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68AA407627DBC1DE000DC410 /* TitanBox */;
+			targetProxy = 68AA408D27DBC1E0000DC410 /* PBXContainerItemProxy */;
+		};
+		68AA409827DBC1E0000DC410 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68AA407627DBC1DE000DC410 /* TitanBox */;
+			targetProxy = 68AA409727DBC1E0000DC410 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		68AA409E27DBC1E0000DC410 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		68AA409F27DBC1E0000DC410 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68AA40A127DBC1E0000DC410 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TitanBox/Preview Content\"";
+				DEVELOPMENT_TEAM = WJ294G43AY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.cs193p.course.TitanBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		68AA40A227DBC1E0000DC410 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TitanBox/Preview Content\"";
+				DEVELOPMENT_TEAM = WJ294G43AY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.cs193p.course.TitanBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		68AA40A427DBC1E0000DC410 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WJ294G43AY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.cs193p.course.TitanBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TitanBox.app/TitanBox";
+			};
+			name = Debug;
+		};
+		68AA40A527DBC1E0000DC410 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WJ294G43AY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.cs193p.course.TitanBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TitanBox.app/TitanBox";
+			};
+			name = Release;
+		};
+		68AA40A727DBC1E0000DC410 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WJ294G43AY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.cs193p.course.TitanBoxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TitanBox;
+			};
+			name = Debug;
+		};
+		68AA40A827DBC1E0000DC410 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WJ294G43AY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.cs193p.course.TitanBoxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TitanBox;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68AA407227DBC1DE000DC410 /* Build configuration list for PBXProject "TitanBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68AA409E27DBC1E0000DC410 /* Debug */,
+				68AA409F27DBC1E0000DC410 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68AA40A027DBC1E0000DC410 /* Build configuration list for PBXNativeTarget "TitanBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68AA40A127DBC1E0000DC410 /* Debug */,
+				68AA40A227DBC1E0000DC410 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68AA40A327DBC1E0000DC410 /* Build configuration list for PBXNativeTarget "TitanBoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68AA40A427DBC1E0000DC410 /* Debug */,
+				68AA40A527DBC1E0000DC410 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68AA40A627DBC1E0000DC410 /* Build configuration list for PBXNativeTarget "TitanBoxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68AA40A727DBC1E0000DC410 /* Debug */,
+				68AA40A827DBC1E0000DC410 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		68AA408527DBC1DF000DC410 /* TitanBox.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				68AA408627DBC1DF000DC410 /* TitanBox.xcdatamodel */,
+			);
+			currentVersion = 68AA408627DBC1DF000DC410 /* TitanBox.xcdatamodel */;
+			path = TitanBox.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 68AA406F27DBC1DE000DC410 /* Project object */;
+}
