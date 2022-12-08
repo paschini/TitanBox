@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		689E850127DE0FE200CE09BF /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689E850027DE0FE200CE09BF /* ScannerViewModel.swift */; };
+		689E850327DE100900CE09BF /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689E850227DE100900CE09BF /* ScannerView.swift */; };
 		68AA407B27DBC1DE000DC410 /* TitanBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA407A27DBC1DE000DC410 /* TitanBoxApp.swift */; };
 		68AA407D27DBC1DE000DC410 /* BoxDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA407C27DBC1DE000DC410 /* BoxDataView.swift */; };
 		68AA407F27DBC1DF000DC410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68AA407E27DBC1DF000DC410 /* Assets.xcassets */; };
@@ -17,7 +19,6 @@
 		68AA409B27DBC1E0000DC410 /* TitanBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA409A27DBC1E0000DC410 /* TitanBoxUITests.swift */; };
 		68AA409D27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA409C27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift */; };
 		68AA40AA27DBC4EE000DC410 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA40A927DBC4EE000DC410 /* InitialView.swift */; };
-		68AA40AC27DCA960000DC410 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA40AB27DCA960000DC410 /* QRCodeScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		689E850027DE0FE200CE09BF /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		689E850227DE100900CE09BF /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		68AA407727DBC1DE000DC410 /* TitanBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TitanBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68AA407A27DBC1DE000DC410 /* TitanBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanBoxApp.swift; sourceTree = "<group>"; };
 		68AA407C27DBC1DE000DC410 /* BoxDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDataView.swift; sourceTree = "<group>"; };
@@ -51,7 +54,6 @@
 		68AA409A27DBC1E0000DC410 /* TitanBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanBoxUITests.swift; sourceTree = "<group>"; };
 		68AA409C27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanBoxUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		68AA40A927DBC4EE000DC410 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
-		68AA40AB27DCA960000DC410 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +106,8 @@
 			children = (
 				68AA407A27DBC1DE000DC410 /* TitanBoxApp.swift */,
 				68AA40A927DBC4EE000DC410 /* InitialView.swift */,
-				68AA40AB27DCA960000DC410 /* QRCodeScannerView.swift */,
+				689E850227DE100900CE09BF /* ScannerView.swift */,
+				689E850027DE0FE200CE09BF /* ScannerViewModel.swift */,
 				68AA407C27DBC1DE000DC410 /* BoxDataView.swift */,
 				68AA407E27DBC1DF000DC410 /* Assets.xcassets */,
 				68AA408327DBC1DF000DC410 /* Persistence.swift */,
@@ -269,12 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				689E850327DE100900CE09BF /* ScannerView.swift in Sources */,
 				68AA408427DBC1DF000DC410 /* Persistence.swift in Sources */,
 				68AA407D27DBC1DE000DC410 /* BoxDataView.swift in Sources */,
 				68AA408727DBC1DF000DC410 /* TitanBox.xcdatamodeld in Sources */,
 				68AA407B27DBC1DE000DC410 /* TitanBoxApp.swift in Sources */,
 				68AA40AA27DBC4EE000DC410 /* InitialView.swift in Sources */,
-				68AA40AC27DCA960000DC410 /* QRCodeScannerView.swift in Sources */,
+				689E850127DE0FE200CE09BF /* ScannerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +442,7 @@
 				DEVELOPMENT_TEAM = WJ294G43AY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR codes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -467,6 +472,7 @@
 				DEVELOPMENT_TEAM = WJ294G43AY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR codes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

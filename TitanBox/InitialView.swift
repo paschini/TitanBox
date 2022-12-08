@@ -8,12 +8,30 @@
 import SwiftUI
 
 struct InitialView: View {
+    @State var isShowingScanner: Bool = false
+    
+    var body: some View {
+        isShowingScanner ?
+            AnyView(ScannerView()) :
+        AnyView(AppPresentationView(showScanner: $isShowingScanner))
+    }
+}
+
+struct AppPresentationView: View {
+    @Binding var showScanner: Bool
+    
     var body: some View {
         VStack {
-            Text("TitanBox").font(.largeTitle)
+            Text("TitanBox").font(.title)
             BoxImage()
-            Spacer()
-            ScanButton()
+            Button {
+                showScanner = true
+            } label: {
+                HStack {
+                    Image(systemName: "camera.viewfinder")
+                    Text("scan box code")
+                }
+            }
         }
     }
 }
@@ -38,20 +56,7 @@ struct BoxImage: View {
     }
 }
 
-struct ScanButton: View {
-    var body: some View {
-        Button {
-            print("i got tapped")
-        } label: {
-            HStack {
-                Image(systemName: "camera.viewfinder")
-                Text("sccan box code")
-            }.font(.headline)
-        }
-    }
-}
-
-struct SwiftUIView_Previews: PreviewProvider {
+struct InitialView_Previews: PreviewProvider {
     static var previews: some View {
         InitialView().preferredColorScheme(.dark)
         
