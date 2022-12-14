@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct InitialView: View {
-    @State var isShowingScanner: Bool = false
+    @EnvironmentObject var vm: ScannerViewModel
     
     var body: some View {
-        isShowingScanner ?
+        vm.isShowingScanner ?
             AnyView(ScannerView()) :
-        AnyView(AppPresentationView(showScanner: $isShowingScanner))
+        AnyView(AppPresentationView(showScanner: $vm.isShowingScanner))
     }
 }
 
@@ -37,31 +37,38 @@ struct AppPresentationView: View {
 }
 
 struct BoxImage: View {
+    @EnvironmentObject var vm: ScannerViewModel
+    
     var body: some View {
-        GeometryReader { geometry in
-            Image(systemName: "shippingbox.fill")
-                .resizable()
-                .scaledToFit()
-                .padding()
-                .frame(
-                    width: geometry.size.width * DrawingConstants.scaleFactor,
-                    height: geometry.size.height * DrawingConstants.scaleFactor
-                )
-                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+        VStack {
+            GeometryReader { geometry in
+                Image(systemName: "shippingbox.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+                    .frame(
+                        width: geometry.size.width * DrawingConstants.scaleFactor,
+                        height: geometry.size.height * DrawingConstants.scaleFactor
+                    )
+                    .frame(width: geometry.size.width, height: geometry.size.height/2, alignment: .top)
+            }
+            
+            if (!vm.recognizedItems.isEmpty) {
+                ResultView(recognizedItems: $vm.recognizedItems)
+            }
         }
     }
     
     private struct DrawingConstants {
-        static let scaleFactor: CGFloat = 0.6
+        static let scaleFactor: CGFloat = 0.65
     }
 }
 
 struct InitialView_Previews: PreviewProvider {
-    static var previews: some View {
-        InitialView().preferredColorScheme(.dark)
+    static let vm = ScannerViewModel()
         
-        InitialView().preferredColorScheme(.light)
+    static var previews: some View {
+        InitialView().environmentObject(vm).preferredColorScheme(.dark)
+        InitialView().environmentObject(vm).preferredColorScheme(.light)
     }
 }
-
-
