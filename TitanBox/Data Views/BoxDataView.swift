@@ -10,13 +10,13 @@ import CoreData
 
 struct BoxDataView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Box.timestamp, ascending: true)],
         animation: .default)
     private var boxes: FetchedResults<Box>
     
-
+    
     var body: some View {
         NavigationView {
             List {
@@ -35,19 +35,19 @@ struct BoxDataView: View {
                 }
                 ToolbarItem {
                     Button(action: addBox) {
-                        Label("Add Item", systemImage: "plus")
+                        Label("Add Box", systemImage: "plus")
                     }
                 }
             }
-            Text("Select an item")
+            Text("Select a box")
         }
     }
-
+    
     private func addBox() {
         withAnimation {
             let newBox = Box(context: viewContext)
             newBox.timestamp = Date()
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -58,11 +58,11 @@ struct BoxDataView: View {
             }
         }
     }
-
+    
     private func deleteBoxes(offsets: IndexSet) {
         withAnimation {
             offsets.map { boxes[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {
