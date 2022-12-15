@@ -12,28 +12,29 @@ struct BoxDataView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Box.timestamp, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var boxes: FetchedResults<Box>
+    
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(boxes) { box in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        Text("Box at \(box.timestamp!, formatter: itemFormatter)")
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Text(box.timestamp!, formatter: itemFormatter)
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .onDelete(perform: deleteBoxes)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: addBox) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
@@ -42,10 +43,10 @@ struct BoxDataView: View {
         }
     }
 
-    private func addItem() {
+    private func addBox() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newBox = Box(context: viewContext)
+            newBox.timestamp = Date()
 
             do {
                 try viewContext.save()
@@ -58,9 +59,9 @@ struct BoxDataView: View {
         }
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    private func deleteBoxes(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { boxes[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
