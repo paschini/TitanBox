@@ -16,6 +16,8 @@ struct PersistenceController {
         for _ in 0..<10 {
             let newBox = Box(context: viewContext)
             newBox.timestamp = Date()
+            newBox.id = UUID()
+            newBox.name = "Preview Box"
         }
         do {
             try viewContext.save()

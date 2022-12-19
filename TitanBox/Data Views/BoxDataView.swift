@@ -22,9 +22,11 @@ struct BoxDataView: View {
             List {
                 ForEach(boxes) { box in
                     NavigationLink {
-                        Text("Box at \(box.timestamp!, formatter: itemFormatter)")
+                        Text("Box created at \(box.timestamp ?? Date(), formatter: boxFormatter)")
+                        Text("Box name: \(box.name ?? "Unknown box")")
+                        Text("Box id: \(box.id?.uuidString ?? "not found")")
                     } label: {
-                        Text(box.timestamp!, formatter: itemFormatter)
+                        Text(box.id?.uuidString ?? "Error")
                     }
                 }
                 .onDelete(perform: deleteBoxes)
@@ -34,8 +36,10 @@ struct BoxDataView: View {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addBox) {
-                        Label("Add Box", systemImage: "plus")
+                    Button {
+                        print("should go to scanner view")
+                    } label: {
+                        Label("Add box", systemImage: "plus")
                     }
                 }
             }
@@ -75,7 +79,7 @@ struct BoxDataView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
+private let boxFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
     formatter.timeStyle = .medium

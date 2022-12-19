@@ -11,7 +11,6 @@ import VisionKit
 struct DataScannerView : UIViewControllerRepresentable
 {
     @Binding var recognizedItems: [RecognizedItem]
-    @Binding var showScanner: Bool
     
     let recognizedDataTypes:Set<DataScannerViewController.RecognizedDataType> = [
         .barcode(symbologies: [.qr]),
@@ -33,7 +32,7 @@ struct DataScannerView : UIViewControllerRepresentable
 
     func makeCoordinator() -> Coordinator
     {
-        Coordinator(recognizedItems: $recognizedItems, showScanner: $showScanner)
+        Coordinator(recognizedItems: $recognizedItems)
     }
 
     static func dismantleUIViewController(_ uiViewController: DataScannerViewController, coordinator: Coordinator) {
@@ -43,11 +42,9 @@ struct DataScannerView : UIViewControllerRepresentable
     class Coordinator: NSObject, DataScannerViewControllerDelegate
     {
         @Binding var recognizedItems: [RecognizedItem]
-        @Binding var showScanner: Bool
 
-        init(recognizedItems: Binding<[RecognizedItem]>, showScanner: Binding<Bool>) {
+        init(recognizedItems: Binding<[RecognizedItem]>) {
             self._recognizedItems = recognizedItems
-            self._showScanner = showScanner
         }
                 
         func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
@@ -64,6 +61,7 @@ struct DataScannerView : UIViewControllerRepresentable
         func dataScanner(_ dataScanner: DataScannerViewController, didAdd addedItems: [RecognizedItem], allItems: [RecognizedItem]) {
             recognizedItems.append(contentsOf: addedItems)
             print("added")
+            print(addedItems)
         }
 
         func dataScanner(_ dataScanner: DataScannerViewController, didRemove removedItems: [RecognizedItem], allItems: [RecognizedItem]) {

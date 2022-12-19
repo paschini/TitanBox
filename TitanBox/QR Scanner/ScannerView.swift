@@ -17,7 +17,7 @@ struct ScannerView: View {
         switch vm.dataScannerAccessStatusType
         {
         case .scannerAvailable:
-            MainView(recognizedItems: $vm.recognizedItems, showScanner: $vm.isShowingScanner)
+            MainView(recognizedItems: $vm.recognizedItems)
         case .cameraNotAvailable:
             Text("Could not find an available camera")
         case .scannerNotAvailable:
@@ -32,13 +32,13 @@ struct ScannerView: View {
 
 private struct MainView: View {
     @Binding var recognizedItems: [RecognizedItem]
-    @Binding var showScanner: Bool
     
+    let persistenceController = PersistenceController.shared
     
     var body: some View {
-        DataScannerView(recognizedItems: $recognizedItems, showScanner: $showScanner)
+        DataScannerView(recognizedItems: $recognizedItems)
             .ignoresSafeArea()
-            .sheet(isPresented: .constant(!$recognizedItems.isEmpty)){
+            .sheet(isPresented: .constant(!$recognizedItems.isEmpty)) {
                 ResultView(recognizedItems: $recognizedItems)
                     .background(.ultraThinMaterial)
                     .presentationDetents([.medium, .fraction(0.25)])
@@ -51,14 +51,7 @@ private struct MainView: View {
                         }
                         controller.view.backgroundColor = .clear
                     }
-                Button {
-                    showScanner = false
-                } label: {
-                    HStack {
-                        Image(systemName: "arrowshape.turn.up.backward.circle.fill")
-                        Text("use this code")
-                    }
-                }
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
     }
 }
@@ -66,25 +59,55 @@ private struct MainView: View {
 struct ResultView: View {
     @Binding var recognizedItems: [RecognizedItem]
     
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Box.name, ascending: true)],
+        animation: .default)
+    private var boxes: FetchedResults<Box>
+    
+    let persistenceController = PersistenceController.shared
+    
     var body: some View {
-        VStack{
-            Text("Scanned boxes:").font(.headline)
-            ScrollView{
-                LazyVStack(alignment: .leading, spacing: 16){
-                    ForEach(recognizedItems){ item in
-                        switch item
-                        {
-                        case .barcode(let barcode):
-                            Text(barcode.payloadStringValue ?? "Unknown Barcode")
-                        case .text(let text):
-                            Text(text.transcript)
-                        @unknown default:
-                            Text("Unknown")
+        NavigationView {
+            VStack{
+                Text("Scanned boxes:").font(.headline)
+                ScrollView{
+                    LazyVStack(alignment: .leading, spacing: 16){
+                        ForEach(recognizedItems){ item in
+                            switch item
+                            {
+                            case .barcode(let barcode):
+                                let newBox = Box(context: viewContext)
+                                
+                                let foundBox: Box = boxes.first { box in
+                                    box.id?.uuidString == barcode.payloadStringValue
+                                } ?? newBox
+                                
+                                
+                                HStack {
+                                    Text(foundBox.name ?? "Unknown box")
+                                    
+                                    if (foundBox.name == nil) {
+                                        NavigationLink(destination: CreateBoxView(boxID: UUID(uuidString: barcode.payloadStringValue ?? UUID().uuidString) ?? UUID()).environment(\.managedObjectContext, persistenceController.container.viewContext))
+                                        { Text("Create box") }
+                                    } else {
+                                        Button {
+                                            print("go to box detail view")
+                                        } label: {
+                                            Text("View box")
+                                        }
+                                    }
+                                }
+                            case .text(let text): // should never get here, since we only care about QR codes.
+                                Text(text.transcript)
+                            @unknown default:
+                                Text("Unknown")
+                            }
                         }
-                    }
-                }.padding()
-            }
-        }.padding()
+                    }.padding()
+                }
+            }.padding()
+        }
     }
 }
 
