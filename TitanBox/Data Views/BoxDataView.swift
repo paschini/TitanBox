@@ -21,12 +21,12 @@ struct BoxDataView: View {
         NavigationView {
             List {
                 ForEach(boxes) { box in
-                    NavigationLink {
+                    NavigationLink { // destination: im declaring it here instead
                         Text("Box created at \(box.timestamp ?? Date(), formatter: boxFormatter)")
                         Text("Box name: \(box.name ?? "Unknown box")")
                         Text("Box id: \(box.id?.uuidString ?? "not found")")
                     } label: {
-                        Text(box.id?.uuidString ?? "Error")
+                        Text(box.name ?? box.id?.uuidString ?? "Unknown box")
                     }
                 }
                 .onDelete(perform: deleteBoxes)
@@ -35,6 +35,13 @@ struct BoxDataView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        deleteBoxes(offsets: IndexSet(0..<boxes.endIndex))
+                    } label: {
+                        Text("Nuke data")
+                    }
+                }
                 ToolbarItem {
                     Button {
                         print("should go to scanner view")
@@ -42,23 +49,6 @@ struct BoxDataView: View {
                         Label("Add box", systemImage: "plus")
                     }
                 }
-            }
-            Text("Select a box")
-        }
-    }
-    
-    private func addBox() {
-        withAnimation {
-            let newBox = Box(context: viewContext)
-            newBox.timestamp = Date()
-            
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
@@ -84,7 +74,7 @@ private let boxFormatter: DateFormatter = {
     formatter.dateStyle = .short
     formatter.timeStyle = .medium
     return formatter
-}()
+}() // self calling function
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

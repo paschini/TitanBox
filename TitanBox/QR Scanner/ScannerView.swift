@@ -33,8 +33,6 @@ struct ScannerView: View {
 private struct MainView: View {
     @Binding var recognizedItems: [RecognizedItem]
     
-    let persistenceController = PersistenceController.shared
-    
     var body: some View {
         DataScannerView(recognizedItems: $recognizedItems)
             .ignoresSafeArea()
@@ -51,21 +49,19 @@ private struct MainView: View {
                         }
                         controller.view.backgroundColor = .clear
                     }
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
     }
 }
 
 struct ResultView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @Binding var recognizedItems: [RecognizedItem]
     
-    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Box.name, ascending: true)],
         animation: .default)
     private var boxes: FetchedResults<Box>
-    
-    let persistenceController = PersistenceController.shared
+
     
     var body: some View {
         NavigationView {
@@ -77,6 +73,7 @@ struct ResultView: View {
                             switch item
                             {
                             case .barcode(let barcode):
+                                
                                 let newBox = Box(context: viewContext)
                                 
                                 let foundBox: Box = boxes.first { box in
@@ -88,7 +85,7 @@ struct ResultView: View {
                                     Text(foundBox.name ?? "Unknown box")
                                     
                                     if (foundBox.name == nil) {
-                                        NavigationLink(destination: CreateBoxView(boxID: UUID(uuidString: barcode.payloadStringValue ?? UUID().uuidString) ?? UUID()).environment(\.managedObjectContext, persistenceController.container.viewContext))
+                                        NavigationLink(destination: CreateBoxView(boxID: UUID(uuidString: barcode.payloadStringValue ?? UUID().uuidString) ?? UUID()))
                                         { Text("Create box") }
                                     } else {
                                         Button {
