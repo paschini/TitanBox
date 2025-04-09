@@ -14,16 +14,24 @@ struct DataScannerView : UIViewControllerRepresentable
     @Binding var showScanner: Bool
     
     let recognizedDataTypes:Set<DataScannerViewController.RecognizedDataType> = [
-        .barcode(symbologies: [.qr]),
-        // uncomment to filter on specific languages (e.g., Japanese)
-        // .text(languages: ["ja"])
+        .text(languages: ["sv", "en"]),
+        .barcode(symbologies: [.qr])
+        // uncomment to filter on specific languages (e.g., Swedish, english)
+//        .text(languages: ["sv"]),
+//        .text(languages: ["en"]),
         // uncomment to filter on specific content types (e.g., URLs)
         // .text(textContentType: .URL)
     ]
     
     func makeUIViewController(context: Context) -> DataScannerViewController
     {
-        return DataScannerViewController(recognizedDataTypes: recognizedDataTypes, qualityLevel: .balanced, recognizesMultipleItems: false, isGuidanceEnabled: true, isHighlightingEnabled: true)
+        return DataScannerViewController(
+            recognizedDataTypes: recognizedDataTypes,
+            qualityLevel: .balanced,
+            recognizesMultipleItems: true,
+            isGuidanceEnabled: true,
+            isHighlightingEnabled: true
+        )
     }
 
     func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
@@ -53,9 +61,9 @@ struct DataScannerView : UIViewControllerRepresentable
         func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
             switch item {
             case .text(let text):
-                print("text: \(text.transcript)")
+                print("tapped on text: \(text.transcript)")
             case .barcode(let barcode):
-                print("barcode: \(barcode.payloadStringValue ?? "unknown")")
+                print("tapped on barcode: \(barcode.payloadStringValue ?? "unknown")")
             default:
                 print("unexpected item")
             }

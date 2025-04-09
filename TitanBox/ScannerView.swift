@@ -36,11 +36,13 @@ private struct MainView: View {
     
     
     var body: some View {
+        
         DataScannerView(recognizedItems: $recognizedItems, showScanner: $showScanner)
-            .ignoresSafeArea()
-            .sheet(isPresented: .constant(!$recognizedItems.isEmpty)){
+//            .ignoresSafeArea()
+//            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        
+            .sheet(isPresented: .constant(!$recognizedItems.isEmpty)) {
                 ResultView(recognizedItems: $recognizedItems)
-                    .background(.ultraThinMaterial)
                     .presentationDetents([.medium, .fraction(0.25)])
                     .presentationDragIndicator(.visible)
                     .interactiveDismissDisabled()
@@ -49,7 +51,7 @@ private struct MainView: View {
                               let controller = windowScene.windows.first?.rootViewController?.presentedViewController else{
                             return
                         }
-                        controller.view.backgroundColor = .clear
+                        controller.view.backgroundColor = .secondarySystemBackground
                     }
                 Button {
                     showScanner = false
@@ -68,20 +70,35 @@ struct ResultView: View {
     
     var body: some View {
         VStack{
-            Text("Scanned boxes:").font(.headline)
+            Text("Scanned shit boxes:").font(.headline)
             ScrollView{
                 LazyVStack(alignment: .leading, spacing: 16){
-                    ForEach(recognizedItems){ item in
-                        switch item
-                        {
-                        case .barcode(let barcode):
-                            Text(barcode.payloadStringValue ?? "Unknown Barcode")
-                        case .text(let text):
-                            Text(text.transcript)
-                        @unknown default:
-                            Text("Unknown")
+                    Text(recognizedItems.reduce(into: "Box name: ") { result, item in
+                        if case .text(let text) = item {
+                            result += " \(text.transcript)"
                         }
-                    }
+                    })
+                    
+                    Text(recognizedItems.reduce(into: "Code: ") { result, item in
+                        if case .barcode(let barcode) = item {
+                            result = " \(barcode.payloadStringValue ?? "Unknown Barcode")"
+                        }
+                    })
+                    // { item in
+//                    !removedItems.contains(where: {$0.id == item.id})
+//                }
+                   
+//                    ForEach(recognizedItems){ item in
+//                        switch item
+//                        {
+//                        case .barcode(let barcode):
+//                            Text("ID: \(barcode.payloadStringValue ?? "Unknown Barcode")")
+//                        case .text(let text):
+//                                    Text("Name: \(text.transcript)")
+//                        @unknown default:
+//                            Text("Error")
+//                        }
+//                    }
                 }.padding()
             }
         }.padding()
@@ -89,7 +106,7 @@ struct ResultView: View {
 }
 
 struct ScannerView_Previews: PreviewProvider {
-    static let vm = ScannerViewModel()
+    static var vm = ScannerViewModel()
     
 //    static let vm = ({ () -> ScannerViewModel in
 //        let envObj = ScannerViewModel()
@@ -97,13 +114,13 @@ struct ScannerView_Previews: PreviewProvider {
 //        envObj.recognizedItems = ({ () -> RecognizedItem in
 //            let item = RecognizedItem()
 //            item.id = UUID()
+//            item.barcode = "12345"
 //        }())
 //        envObj.dataScannerAccessStatusType = .scannerAvailable
 //        return envObj
 //    }() )
 
     static var previews: some View {
-        ScannerView().environmentObject(vm).preferredColorScheme(.dark)
-        ScannerView().environmentObject(vm).preferredColorScheme(.light)
+        ScannerView().environmentObject(vm)
     }
 }

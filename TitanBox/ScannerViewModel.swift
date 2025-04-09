@@ -27,7 +27,7 @@ final class ScannerViewModel: ObservableObject  //helps to reflect back the chan
     @Published var recognizedItems: [RecognizedItem] = []
     @Published var isShowingScanner: Bool = false
     
-    private var isScannerAvailable : Bool
+    private var isScannerAvailable : Bool // = DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
@@ -42,10 +42,8 @@ final class ScannerViewModel: ObservableObject  //helps to reflect back the chan
         
         switch AVCaptureDevice.authorizationStatus(for: .video)
         {
-        case .authorized:
-            dataScannerAccessStatusType = isScannerAvailable ? .scannerAvailable : .scannerNotAvailable
-        case .restricted,.denied:
-            dataScannerAccessStatusType = .cameraAccessNotGranted
+        case .authorized: dataScannerAccessStatusType = isScannerAvailable ? .scannerAvailable : .scannerNotAvailable
+        case .restricted,.denied: dataScannerAccessStatusType = .cameraAccessNotGranted
         case .notDetermined:
             let granted = await AVCaptureDevice.requestAccess(for: .video)
             if granted
