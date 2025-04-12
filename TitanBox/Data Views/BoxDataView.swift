@@ -16,21 +16,14 @@ struct BoxDataView: View {
         animation: .default)
     private var boxes: FetchedResults<Box>
     
-    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
-                ForEach(boxes) { box in
-                    NavigationLink { // destination: im declaring it here instead
-                        Text("Box created at \(box.timestamp ?? Date(), formatter: boxFormatter)")
-                        Text("Box name: \(box.name ?? "Unknown box")")
-                        Text("Box id: \(box.id?.uuidString ?? "not found")")
-                    } label: {
-                        Text(box.name ?? box.id?.uuidString ?? "Unknown box")
-                    }
-                }
-                .onDelete(perform: deleteBoxes)
+                ForEach(boxes, id: \.self) { box in
+                    NavigationLink(box.name ?? "Unknown box", value: box)
+                }.onDelete(perform: deleteBoxes)
             }
+            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -50,6 +43,28 @@ struct BoxDataView: View {
                     }
                 }
             }
+            
+            .navigationTitle(Text("Boxes"))
+            
+            .navigationDestination(for: Box.self) { box in
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Text("Box Name: ").bold()
+                        Text("\(box.name ?? "Unknown box")")
+                    }
+                    
+                    HStack {
+                        Text("Box created at: ").bold()
+                        Text("\(box.timestamp ?? Date(), formatter: boxFormatter)")
+                    }
+                    
+                    HStack {
+                        Text("Box Id: ").bold()
+                        Text("\(box.id?.uuidString ?? "not found")").font(.footnote)
+                    }
+                }
+            }
+            
         }
     }
     
@@ -72,7 +87,7 @@ struct BoxDataView: View {
 private let boxFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
-    formatter.timeStyle = .medium
+    formatter.timeStyle = .short
     return formatter
 }() // self calling function
 
