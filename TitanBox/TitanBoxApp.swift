@@ -18,6 +18,7 @@ struct TitanBoxApp: App {
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             InitialView()
                 .environmentObject(vm)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .task {
                     await vm.requestDataScannerAccessStatus()
                 }

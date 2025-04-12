@@ -10,26 +10,38 @@ import SwiftUI
 struct InitialView: View {
     @EnvironmentObject var vm: ScannerViewModel
     
-    var body: some View {
-        vm.isShowingScanner ?
-            AnyView(ScannerView()) :
-        AnyView(AppPresentationView(showScanner: $vm.isShowingScanner))
-    }
-}
-
-struct AppPresentationView: View {
-    @Binding var showScanner: Bool
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Box.name, ascending: true)],
+        animation: .default)
+    
+    private var boxes: FetchedResults<Box>
+//    let persistenceController = PersistenceController.shared
     
     var body: some View {
-        VStack {
-            Text("TitanBox").font(.title)
-            BoxImage()
-            Button {
-                showScanner = true
-            } label: {
-                HStack {
-                    Image(systemName: "camera.viewfinder")
-                    Text("scan box code")
+        NavigationView {
+            VStack {
+                Text("TitanBox").font(.title)
+                BoxImage()
+                
+//                if(!boxes.isEmpty) {
+//                    NavigationLink(destination: BoxDataView().environment(\.managedObjectContext, persistenceController.container.viewContext)) {
+//                        Text("See all boxes")
+//                    }
+//                }
+                
+                if (!boxes.isEmpty) {
+                    NavigationLink(destination: BoxDataView()) {
+                        Text("See all boxes")
+                    }
+                }
+                
+                NavigationLink(destination: ScannerView(vm: _vm)) {
+                    HStack {
+                        Image(systemName: "camera.viewfinder")
+                        Text("scan box code")
+                    }
                 }
             }
         }
