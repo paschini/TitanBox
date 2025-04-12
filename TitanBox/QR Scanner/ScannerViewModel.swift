@@ -25,7 +25,6 @@ final class ScannerViewModel: ObservableObject  //helps to reflect back the chan
 {    
     @Published var dataScannerAccessStatusType : DataScannerAccessStatusType = .notDetermined
     @Published var recognizedItems: [RecognizedItem] = []
-    @Published var isShowingScanner: Bool = false
     
     private var isScannerAvailable : Bool // = DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     {
