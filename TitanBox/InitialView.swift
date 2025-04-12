@@ -80,7 +80,6 @@ struct InitialView_Previews: PreviewProvider {
     static let vm = ScannerViewModel()
         
     static var previews: some View {
-        InitialView().environmentObject(vm).preferredColorScheme(.dark)
-        InitialView().environmentObject(vm).preferredColorScheme(.light)
+        InitialView().environmentObject(vm)
     }
 }
