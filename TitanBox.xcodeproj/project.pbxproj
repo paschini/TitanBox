@@ -21,6 +21,7 @@
 		68AA409D27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA409C27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift */; };
 		68AA40AA27DBC4EE000DC410 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA40A927DBC4EE000DC410 /* InitialView.swift */; };
 		68CCEFDD2942574E00FC1BD7 /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CCEFDC2942574E00FC1BD7 /* DataScannerView.swift */; };
+		CF3F07FB2DAAF779006B2DD1 /* BoxDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F07FA2DAAF779006B2DD1 /* BoxDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		68AA409C27DBC1E0000DC410 /* TitanBoxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanBoxUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		68AA40A927DBC4EE000DC410 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		68CCEFDC2942574E00FC1BD7 /* DataScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerView.swift; sourceTree = "<group>"; };
+		CF3F07FA2DAAF779006B2DD1 /* BoxDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				68A3D929294B488600D15F49 /* BoxDataView.swift */,
 				681EDCD22951054800880A85 /* CreateBoxView.swift */,
 				68AA408327DBC1DF000DC410 /* Persistence.swift */,
+				CF3F07FA2DAAF779006B2DD1 /* BoxDetailsView.swift */,
 				68AA408527DBC1DF000DC410 /* TitanBox.xcdatamodeld */,
 			);
 			path = "Data Views";
@@ -228,7 +231,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					68AA407627DBC1DE000DC410 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -300,6 +303,7 @@
 				68A3D92A294B488600D15F49 /* BoxDataView.swift in Sources */,
 				68AA407B27DBC1DE000DC410 /* TitanBoxApp.swift in Sources */,
 				68AA40AA27DBC4EE000DC410 /* InitialView.swift in Sources */,
+				CF3F07FB2DAAF779006B2DD1 /* BoxDetailsView.swift in Sources */,
 				689E850127DE0FE200CE09BF /* ScannerViewModel.swift in Sources */,
 				68CCEFDD2942574E00FC1BD7 /* DataScannerView.swift in Sources */,
 				681EDCD32951054800880A85 /* CreateBoxView.swift in Sources */,
@@ -374,8 +378,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = WJ294G43AY;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -435,8 +441,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = WJ294G43AY;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -464,7 +472,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TitanBox/Preview Content\"";
-				DEVELOPMENT_TEAM = WJ294G43AY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "The camera will be used to scan QR codes for your boxes.";
@@ -479,7 +486,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.titanBox;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.titanBox3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -500,7 +507,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TitanBox/Preview Content\"";
-				DEVELOPMENT_TEAM = WJ294G43AY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "The camera will be used to scan QR codes for your boxes.";
@@ -515,7 +521,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.titanBox;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.titanBox3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -530,11 +536,9 @@
 		68AA40A427DBC1E0000DC410 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WJ294G43AY;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
@@ -550,11 +554,9 @@
 		68AA40A527DBC1E0000DC410 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WJ294G43AY;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
@@ -570,10 +572,8 @@
 		68AA40A727DBC1E0000DC410 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WJ294G43AY;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.titanBoxUITests;
@@ -588,10 +588,8 @@
 		68AA40A827DBC1E0000DC410 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WJ294G43AY;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.titanstate.titanBoxUITests;

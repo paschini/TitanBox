@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CreateBoxView: View {
     var boxID: UUID
+    
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) private var dismiss
     
@@ -28,12 +29,15 @@ struct CreateBoxView: View {
         }
     }
     
-    func addBox() {
+    private func addBox() {
         withAnimation {
             let newBox = Box(context: viewContext)
+            
             newBox.id = boxID
             newBox.timestamp = Date()
             newBox.name = boxName
+            
+            print("me running")
             
             do {
                 print("trying to save new box...")
@@ -53,6 +57,6 @@ struct CreateBoxView: View {
 
 struct CreateBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateBoxView(boxID: UUID(), boxName: "Test box")
+        CreateBoxView(boxID: UUID(), boxName: "Preview box")
     }
 }

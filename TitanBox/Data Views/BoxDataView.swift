@@ -47,22 +47,7 @@ struct BoxDataView: View {
             .navigationTitle(Text("Boxes"))
             
             .navigationDestination(for: Box.self) { box in
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack {
-                        Text("Box Name: ").bold()
-                        Text("\(box.name ?? "Unknown box")")
-                    }
-                    
-                    HStack {
-                        Text("Box created at: ").bold()
-                        Text("\(box.timestamp ?? Date(), formatter: boxFormatter)")
-                    }
-                    
-                    HStack {
-                        Text("Box Id: ").bold()
-                        Text("\(box.id?.uuidString ?? "not found")").font(.footnote)
-                    }
-                }
+                BoxDetailsView(box: box)
             }
             
         }

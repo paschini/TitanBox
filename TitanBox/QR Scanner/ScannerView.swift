@@ -73,28 +73,15 @@ struct ResultView: View {
                             switch item
                             {
                             case .barcode(let barcode):
-                                
-                                let newBox = Box(context: viewContext)
-                                
-                                let foundBox: Box = boxes.first { box in
-                                    box.id?.uuidString == barcode.payloadStringValue
-                                } ?? newBox
-                                
-                                
                                 HStack {
-                                    Text(foundBox.name ?? "Unknown box")
-                                    
-                                    if (foundBox.name == nil) {
-                                        NavigationLink(destination: CreateBoxView(boxID: UUID(uuidString: barcode.payloadStringValue ?? UUID().uuidString) ?? UUID()))
-                                        { Text("Create box") }
+                                    if let foundBox = boxes.first(where: { $0.id == UUID(uuidString: barcode.payloadStringValue ?? UUID().uuidString) ?? UUID() }) {
+                                       NavigationLink("Found this box: \(foundBox.name ?? "No name")", destination: BoxDetailsView(box: foundBox))
                                     } else {
-                                        Button {
-                                            print("go to box detail view")
-                                        } label: {
-                                            Text("View box")
+                                        NavigationLink("Create a new TitanBox", destination: CreateBoxView(boxID: UUID(uuidString: barcode.payloadStringValue ?? UUID().uuidString) ?? UUID()))
                                         }
                                     }
-                                }
+                                   
+
                             case .text(let text): // should never get here, since we only care about QR codes.
                                 Text(text.transcript)
                             @unknown default:
